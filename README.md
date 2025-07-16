@@ -31,8 +31,8 @@ A RESTful API built with **Express**, **TypeScript**, and **MongoDB (Mongoose)**
 1️⃣ Clone the repository:
 
 ```bash
-git clone <your-repo-link>
-cd <your-repo-folder>
+git clone https://github.com/TanjilunIslam/library_Management_A3.git
+cd library_Management_A3
 ```
 
 2️⃣ Install dependencies:
