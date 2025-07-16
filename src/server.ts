@@ -1,10 +1,3 @@
-// forked
-// g2mXy905UThwdfIn
-
-
-// mongodb+srv://<db_username>:<db_password>@cluster0.3e5k7se.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-
-
 require('dotenv').config();
 import { Server } from 'http';
 import app from './app';

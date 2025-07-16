@@ -40,11 +40,6 @@ exports.bookRoutes.get('/', (req, res, next) => __awaiter(void 0, void 0, void 0
         }
         const resultsLimit = limit ? Number(limit) : 10;
         let booksQuery = yield books_model_1.Book.find(query).sort({ [sortBy]: sort === 'desc' ? 'desc' : 'asc' }).limit(resultsLimit);
-        // let booksQuery = await Book.find(query).sort({ [sortBy as string]: `${sort}` }).limit(resultsLimit)
-        // if (sortBy) {
-        //     const sortDirection = sort === 'desc' ? 'descending' : 'ascending';
-        //     booksQuery = booksQuery.sort({ [sortBy as string]: sort });
-        // }
         res.status(201).json({
             success: true,
             message: "Books retrieved successfully",

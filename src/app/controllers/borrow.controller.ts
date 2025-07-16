@@ -59,14 +59,10 @@ borrowBookRoutes.get('/', async (req: Request, res: Response, next: NextFunction
                 }
             }
         ]);
-        const orderedData = dataSummary.map(item => ({
-            book: item.book,
-            totalQuantity: item.totalQuantity
-        }));
         res.status(201).json({
             success: true,
             message: "Borrowed books summary retrieved successfully",
-            data: orderedData
+            data: dataSummary
         })
     } catch (error: any) {
         next(error)

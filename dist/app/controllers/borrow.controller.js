@@ -67,14 +67,10 @@ exports.borrowBookRoutes.get('/', (req, res, next) => __awaiter(void 0, void 0, 
                 }
             }
         ]);
-        const orderedData = dataSummary.map(item => ({
-            book: item.book,
-            totalQuantity: item.totalQuantity
-        }));
         res.status(201).json({
             success: true,
             message: "Borrowed books summary retrieved successfully",
-            data: orderedData
+            data: dataSummary
         });
     }
     catch (error) {

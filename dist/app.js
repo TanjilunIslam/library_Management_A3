@@ -11,6 +11,11 @@ const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use("/api/books", books_controller_1.bookRoutes);
 app.use("/api/borrow", borrow_controller_1.borrowBookRoutes);
+app.get('/', (req, res) => {
+    res.json({
+        message: "Welcome to the  Library Management"
+    });
+});
 app.use((req, res) => {
     res.status(404).json({
         message: "Route not found",
@@ -20,8 +25,5 @@ app.use((req, res) => {
 });
 app.use((error, req, res, next) => {
     res.status(400).json((0, errorHandling_1.errorHandling)(error));
-});
-app.get('/', (req, res) => {
-    res.send('welcome to note app');
 });
 exports.default = app;
