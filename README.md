@@ -1,5 +1,5 @@
 
-# 📚 Library Management System API
+# 📚 Library Management System
 
 A RESTful API built with **Express**, **TypeScript**, and **MongoDB (Mongoose)** to manage a library's books and borrowing records.
 
