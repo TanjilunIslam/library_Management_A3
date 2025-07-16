@@ -24,7 +24,7 @@ app.use((error: any, req: Request, res: Response, next: NextFunction) => {
 
 
 app.get('/', (req: Request, res: Response) => {
-    res.send('welcome to note app')
+    res.send('welcome to library management server')
 })
 
 export default app;

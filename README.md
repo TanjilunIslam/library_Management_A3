@@ -1,4 +1,4 @@
-# 📚 Library Management System API
+<!-- # 📚 Library Management System API
 
 A RESTful API built with **Express**, **TypeScript**, and **MongoDB (Mongoose)** to manage a library's books and borrowing records.
 
@@ -122,4 +122,125 @@ Matches the required generic error structure:
     }
   }
 }
-```
+``` -->
+
+
+
+
+
+# 📚 Library Management System (Assignment 3)
+
+This is an Express + TypeScript + MongoDB (Mongoose) REST API for managing a library system. Built for Assignment 3, following all specified requirements exactly.
+
+---
+
+## 🚀 Features
+
+✅ CRUD operations for Books  
+✅ Filtering, Sorting, Pagination on GET Books  
+✅ Borrow system with stock validation  
+✅ Aggregation Pipeline summary of borrowed books  
+✅ Mongoose static methods for business logic  
+✅ Mongoose middleware (pre, post) for lifecycle events  
+✅ Generic error handler with specified response format  
+✅ 404 handling for unmatched routes
+
+---
+
+## 🛠️ Tech Stack
+
+- Node.js
+- Express
+- TypeScript
+- MongoDB
+- Mongoose
+- dotenv
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1️⃣ Clone the repository
+
+```bash
+git clone https://github.com/TanjilunIslam/library_Management_A3.git
+cd library_Management_A3
+2️⃣ Install dependencies
+bash
+Copy
+Edit
+npm install
+3️⃣ Create a .env file
+Create a .env file in the root folder with these variables:
+
+env
+Copy
+Edit
+DB_USER=your_db_user
+DB_PASS=your_db_password
+PORT=5000
+✅ These values will be used to build your MongoDB connection string in code:
+
+ts
+Copy
+Edit
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster.mongodb.net/?retryWrites=true&w=majority`;
+mongoose.connect(uri);
+4️⃣ Start the server
+bash
+Copy
+Edit
+npm start
+📌 API Endpoints
+✅ Books
+POST /api/books - Create a book
+
+GET /api/books - List all books with filter, sort, pagination
+
+GET /api/books/:bookId - Get book by ID
+
+PUT /api/books/:bookId - Update book
+
+DELETE /api/books/:bookId - Delete book
+
+✅ Borrow
+POST /api/borrow - Borrow books (quantity validation, static method)
+
+GET /api/borrow - Aggregation summary of borrowed books
+
+⚠️ Error Response Format
+Matches the required generic error structure:
+
+json
+Copy
+Edit
+{
+  "message": "Validation failed",
+  "success": false,
+  "error": {
+    "name": "ValidationError",
+    "errors": {
+      "copies": {
+        "message": "Copies must be a positive number",
+        "name": "ValidatorError",
+        "properties": {
+          "message": "Copies must be a positive number",
+          "type": "min",
+          "min": 0
+        },
+        "kind": "min",
+        "path": "copies",
+        "value": -5
+      }
+    }
+  }
+}
+✅ All validation errors and 404s return consistent JSON responses matching this format.
+
+🧩 Mongoose Middleware
+Pre 'save': Logs when a book is about to be saved.
+
+Post 'findOneAndDelete': Cleans up related borrow records after book deletion.
+
+Post 'save': Logs borrow creation.
+
