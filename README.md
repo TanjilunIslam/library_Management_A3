@@ -270,7 +270,3 @@ Matches the required generic error structure:
 ```
 
 ---
-
-## 📜 License
-
-MIT
